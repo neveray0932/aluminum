@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<fontFamilies>
+ 
+	<fontFamily name="標楷體">
+		<normal>
+			<ttf>fonts/kaiu.ttf</ttf>
+			<svg>fonts/kaiu.ttf</svg>
+			<eot>fonts/kaiu.ttf</eot>
+			<woff>fonts/kaiu.ttf</woff>
+		</normal>
+		<pdfEncoding>Identity-H</pdfEncoding>
+		<pdfEmbedded>true</pdfEmbedded>
+	</fontFamily>
+ 
+</fontFamilies>
