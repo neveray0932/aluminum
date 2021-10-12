@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
-
 import lombok.Data;
 
 @Entity
@@ -29,11 +28,10 @@ public class WebReportBean {
 	private String reportid;
 	@JsonFormat(shape= JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")
 	private java.util.Date reportdate;
-//	private String customer;
-//	private String contact;
-//	private String tel;
+
 	private String workaddress;
 	private String reportmark;
+	private boolean invalid;
 	
 	@JsonBackReference(value="cust-report")
 //	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

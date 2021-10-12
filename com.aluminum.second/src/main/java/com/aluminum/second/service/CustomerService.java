@@ -19,18 +19,20 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository custdao;
 	
+	//客戶新增
 	public CustomerBean insert(CustomerBean bean) {
 		CustomerBean result = null;
 		if(bean!=null) {
 //			if(!custdao.existsById(bean.getCustomerid())) {
 			
-				System.out.println(bean.getCustomerid());
+				
 				result=custdao.save(bean);
 //			}
 		}
 				
 		return result;
 	}
+	//客戶修改
 	public CustomerBean update(CustomerBean bean) {
 		CustomerBean result = null;
 		if(bean!=null) {
@@ -42,7 +44,7 @@ public class CustomerService {
 		
 		return result;
 	}
-	
+	//客戶刪除
 	public boolean delete(CustomerBean bean) {
 		boolean result = false;
 		if(bean!=null && bean.getCustomerid()!=null) {
@@ -53,6 +55,7 @@ public class CustomerService {
 		}
 		return result;
 	}
+	//客戶條件查詢(詳情請見)
 	public List<CustomerBean> findByAnything(String anythig) {
 		List<CustomerBean> result = null;
 		result = new ArrayList<CustomerBean>();

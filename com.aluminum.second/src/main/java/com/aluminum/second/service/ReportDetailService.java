@@ -16,10 +16,11 @@ public class ReportDetailService {
 	@Autowired
 	private ReportDetailRepository reportDetailRepository ;
 	
+	//報表與產品的組合查詢
 	public List<ReportDetailBean> selectAll() {
 		return reportDetailRepository.findAll();
 	}
-	
+	//報表與產品的組合多筆新增
 	public List<ReportDetailBean> insertAll(List<ReportDetailBean> beans) {
 		List<ReportDetailBean> result =null;
 		if(beans!=null&&beans.get(0).getReportid()!=null) {
@@ -27,7 +28,7 @@ public class ReportDetailService {
 		}
 		return result;
 	}
-	
+	//報表與產品的組合修改
 	public ReportDetailBean update(ReportDetailBean bean) {
 		ReportDetailBean result = null;
 		ConfigId id = new ConfigId();
@@ -40,7 +41,7 @@ public class ReportDetailService {
 		}
 		return result;
 	}
-	
+	//報表與產品的組合單筆刪除
 	public boolean delete(ReportDetailBean bean) {
 		boolean result = false;
 		ConfigId id = new ConfigId();
@@ -54,7 +55,7 @@ public class ReportDetailService {
 		}
 		return result;
 	}
-	
+	//報表與產品的組合多筆刪除
 	public boolean deleteAll(List<ReportDetailBean> beans) {
 		boolean result = false;
 		ConfigId id = new ConfigId();
@@ -68,12 +69,12 @@ public class ReportDetailService {
 		}
 		return result;
 	}
-	
-//	public List<ReportJoin> ReportJoin() {
-//		List<ReportJoin> result =reportDetailRepository.reportJoin();
-//		return result;
-//	}
-	
+	//報表與產品的組合-JOIN
+	public List<ReportJoin> ReportJoin() {
+		List<ReportJoin> result =reportDetailRepository.reportJoin();
+		return result;
+	}
+	//報表與產品的組合-JOIN
 	public List<com.aluminum.second.domain.ReportDetailJoinAll> ReportDetailJoinAll(String reportid) {
 		return reportDetailRepository.ReportDetailJoinAll(reportid);
 	}

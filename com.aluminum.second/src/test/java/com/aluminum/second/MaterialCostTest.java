@@ -14,6 +14,7 @@
 //import com.aluminum.second.domain.ProductBean;
 //import com.aluminum.second.domain.SpecnameBean;
 //import com.aluminum.second.repository.MaterialCostRepository;
+//import com.aluminum.second.repository.ProdSpecRepository;
 //import com.aluminum.second.repository.ProductRepository;
 //import com.aluminum.second.repository.SpecnameRepository;
 //
@@ -27,12 +28,14 @@
 //	private ProductRepository productRepository;
 //	@Autowired
 //	private SpecnameRepository specnameRepository;
+//	@Autowired
+//	private ProdSpecRepository prodSpecRepository;
 //	
 //	@Test
 //	public void method() {
 //		ConfigId id = new ConfigId();
-//		id.setMaterialid(8);
 //		
+////		prodSpecRepository.findById(id)
 ////		System.out.println(id);
 //		MaterialCostBean bean = new MaterialCostBean();
 //		

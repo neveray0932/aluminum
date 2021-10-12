@@ -36,10 +36,13 @@ public class SpecnameBean {
 	@OneToMany(mappedBy="specfk",cascade= {CascadeType.ALL},fetch = FetchType.LAZY)
 	private List<MaterialCostBean> materialcosts;
 
-	@JsonIgnore
-//	@JsonManagedReference("spec-product")
-	@OneToMany(mappedBy="prodspecfk",cascade= {CascadeType.ALL},fetch = FetchType.LAZY)
-	private List<ProductBean> products;
+
+	@JsonManagedReference("spec-prodspec")
+	@OneToMany(mappedBy="specs",cascade= {CascadeType.ALL},fetch = FetchType.LAZY)
+	private List<ProdSpecBean> prodspecs;
+	
+	
+	
 
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(targetEntity = DoorInfoBean.class,fetch = FetchType.LAZY)

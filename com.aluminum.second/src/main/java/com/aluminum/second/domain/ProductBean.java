@@ -15,9 +15,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -28,20 +28,17 @@ public class ProductBean {
 	@Id
 
 	private String prodid;
-	private String prodname;
-	private Integer prodnum;
-	private Integer prodprice;
+//	private String prodname;
+//	private Integer prodnum;
+//	private float coefficient;
+	private String prodmark;
+//	private Integer prodprice;
 	
 
 
 	
 
-//	@JsonBackReference("spec-product")
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
-	@ManyToOne(fetch = FetchType.LAZY,cascade= {CascadeType.ALL})
-	@JoinColumn(name="specidfk",referencedColumnName = "specid",insertable=true,updatable=true ) //name 是 table欄位名字 
-	private SpecnameBean prodspecfk;                                  //referencedColumnName 是 來源pk
+                                //referencedColumnName 是 來源pk
 
 //	@JsonProperty("specidfk")
 //	private void unpackNested( String specidfk ) {
@@ -53,12 +50,29 @@ public class ProductBean {
 //	@JsonIgnore
 	@OneToMany(mappedBy="prodfk",cascade= {CascadeType.ALL},fetch = FetchType.LAZY)
 	private List<ReportDetailBean> reportproducts;
+	
+	@JsonManagedReference("prod-prodspec")
+	@OneToMany(mappedBy="products",cascade= {CascadeType.ALL},fetch = FetchType.LAZY)
+	private List<ProdSpecBean> prodspecs;
 
 	@Override
 	public String toString() {
-		return "ProductBean [prodid=" + prodid + ", prodname=" + prodname + ", prodnum=" + prodnum + ", prodprice="
-				+ prodprice + "]";
+		return "ProductBean [prodid=" + prodid + ", prodmark=" + prodmark + ", reportproducts=" + reportproducts
+				+ ", prodspecs=" + prodspecs + "]";
 	}
+
+
+	
+	
+
+//	@Override
+//	public String toString() {
+//		return "ProductBean [prodid=" + prodid + ", prodname=" + prodname + ", prodnum=" + prodnum + ", coefficient="
+//				+ coefficient + ", prodmark=" + prodmark + ", prodprice=" + prodprice + "]";
+//	}
+
+
+	
 	
 
 	

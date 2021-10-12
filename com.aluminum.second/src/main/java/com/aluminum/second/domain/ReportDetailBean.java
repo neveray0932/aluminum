@@ -18,6 +18,7 @@ import lombok.Data;
 @Entity
 @Table(name="report_detail")
 @Data
+//複合主鍵需要實作序列化
 public class ReportDetailBean implements Serializable {
 	/**
 	 * 
@@ -51,8 +52,8 @@ public class ReportDetailBean implements Serializable {
 //	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(
-			name="reportid", //原表上的colum名
-			referencedColumnName = "reportid", //來源名
+			name="reportid", //原table上的column名
+			referencedColumnName = "reportid", //來源table的column名
 			insertable=false,updatable=false
 			)
 	private WebReportBean reportfk;
@@ -61,8 +62,8 @@ public class ReportDetailBean implements Serializable {
 //	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(
-			name="prodid",
-			referencedColumnName = "prodid",
+			name="prodid",//原table上的column名
+			referencedColumnName = "prodid",//來源table的column名
 			insertable=false,updatable=false
 			)
 	private ProductBean prodfk;
@@ -73,6 +74,7 @@ public class ReportDetailBean implements Serializable {
 				+ ", reportunitprice=" + reportunitprice + ", reportprice=" + reportprice + ", reportfk=" + reportfk
 				+ ", prodfk=" + prodfk + "]";
 	}
+	//複合主鍵
 	public static class ConfigId implements Serializable{
 		private static final long serialVersionUID = 1L;
 		private String reportid;

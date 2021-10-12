@@ -1,7 +1,7 @@
 package com.aluminum.second.domain;
 
 import java.util.HashSet;
-import java.util.List;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,7 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 import lombok.Data;
 
@@ -29,7 +29,7 @@ public class DoorInfoBean {
 	private String doorinfo;
 	
 	@JsonIgnore
-	@OneToMany(targetEntity = SpecnameBean.class,fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = SpecnameBean.class,fetch = FetchType.LAZY,cascade= CascadeType.ALL)
 	@JoinColumn(name="doorinfofk",referencedColumnName = "doorinfoid")
 	private Set<SpecnameBean> specnames = new HashSet<SpecnameBean>(0);
 	

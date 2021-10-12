@@ -2,7 +2,7 @@ package com.aluminum.second.domain;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 import lombok.Data;
 
@@ -35,8 +35,7 @@ public class MaterialCostBean implements Serializable {
 	@Column(name="specid")
 	String specid;
 	
-//	@Column(name="materialname")
-//	String materialname;
+
 	
 	@Column(name="cost")
 	Integer cost;

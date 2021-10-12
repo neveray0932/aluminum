@@ -4,12 +4,14 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ReportDetailJoinAll {
+public class ReportDetailJoinAll2 {
 	private String reportid;
+	private Integer customerid;
 	private String customer;
 	private String prodid;
 	private Integer reportunitprice;
 	private Integer prodcount;
+	private float coefficient;
 	@JsonFormat(shape= JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")
 	private java.util.Date reportdate;
 	private Integer taxnumber;
@@ -17,19 +19,21 @@ public class ReportDetailJoinAll {
 	private String tel;
 	private String reportmark;
 	private String workaddress;
-	public ReportDetailJoinAll() {
+	public ReportDetailJoinAll2() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReportDetailJoinAll(String reportid, String customer, String prodid, Integer reportunitprice,
-			Integer prodcount, Date reportdate, Integer taxnumber, String contact, String tel, String reportmark,
-			String workaddress) {
+	public ReportDetailJoinAll2(String reportid, Integer customerid, String customer, String prodid,
+			Integer reportunitprice, Integer prodcount, float coefficient, Date reportdate, Integer taxnumber,
+			String contact, String tel, String reportmark, String workaddress) {
 		super();
 		this.reportid = reportid;
+		this.customerid = customerid;
 		this.customer = customer;
 		this.prodid = prodid;
 		this.reportunitprice = reportunitprice;
 		this.prodcount = prodcount;
+		this.coefficient = coefficient;
 		this.reportdate = reportdate;
 		this.taxnumber = taxnumber;
 		this.contact = contact;
@@ -42,6 +46,12 @@ public class ReportDetailJoinAll {
 	}
 	public void setReportid(String reportid) {
 		this.reportid = reportid;
+	}
+	public Integer getCustomerid() {
+		return customerid;
+	}
+	public void setCustomerid(Integer customerid) {
+		this.customerid = customerid;
 	}
 	public String getCustomer() {
 		return customer;
@@ -66,6 +76,12 @@ public class ReportDetailJoinAll {
 	}
 	public void setProdcount(Integer prodcount) {
 		this.prodcount = prodcount;
+	}
+	public float getCoefficient() {
+		return coefficient;
+	}
+	public void setCoefficient(float coefficient) {
+		this.coefficient = coefficient;
 	}
 	public java.util.Date getReportdate() {
 		return reportdate;
@@ -103,6 +119,8 @@ public class ReportDetailJoinAll {
 	public void setWorkaddress(String workaddress) {
 		this.workaddress = workaddress;
 	}
+	
+	
 
 	
 	
